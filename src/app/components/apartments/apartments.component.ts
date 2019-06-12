@@ -39,15 +39,14 @@ export class ApartmentsComponent implements OnInit {
       .get("dateAppart1")
       .valueChanges.subscribe(res => {
         console.log();
-
         localStorage.setItem("resDate1", res.toLocaleDateString("en-US"));
       });
 
     this.reservationFormAppart2
       .get("dateAppart2")
-      .valueChanges.subscribe(res =>
-        localStorage.setItem("resDate2", res.toLocaleDateString("en-US"))
-      );
+      .valueChanges.subscribe(res => {
+        localStorage.setItem("resDate2", res.toLocaleDateString("en-US"));
+      });
   }
 
   ngOnInit() {}
@@ -67,6 +66,7 @@ export class ApartmentsComponent implements OnInit {
   showFirstNo() {
     if (confirm("Are you sure you want to rent?")) {
       this.firstAppartNumber = true;
+      this.minDate1 = new Date(localStorage.getItem("resDate1"));
       this.resDateAppart1 = localStorage.getItem("resDate1");
     }
   }
@@ -78,7 +78,27 @@ export class ApartmentsComponent implements OnInit {
     }
   }
 
+  checkAvailabilityAppart1() {
+    if (localStorage.getItem("resDate1") === null) {
+      return true;
+    }
+  }
+
+  checkAvailabilityAppart2() {
+    if (localStorage.getItem("resDate2") === null) {
+      return true;
+    }
+  }
+
   addName(data) {
     this.username = data.body.username;
+  }
+
+  pressRent() {
+    this.resDateAppart1 = "Press Rent Please ...";
+  }
+
+  pressRent2() {
+    this.resDateAppart2 = "Press Rent Please ...";
   }
 }

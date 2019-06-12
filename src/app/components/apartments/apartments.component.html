@@ -17,7 +17,12 @@
         </p>
         <p class="card-text">
           Availability Date:
-          <span class="font-weight-bold">{{ resDateAppart1 }}</span>
+          <ng-container *ngIf="checkAvailabilityAppart1(); else show_date">
+            <span class="font-weight-bold">Available Now</span>
+          </ng-container>
+          <ng-template #show_date>
+            <span class="font-weight-bold">{{ resDateAppart1 }}</span>
+          </ng-template>
         </p>
         <p class="card-text">
           You can Choose your reservation date:
@@ -30,6 +35,7 @@
               [min]="minDate1"
               placeholder="Choose a date"
               formControlName="dateAppart1"
+              (dateChange)="pressRent()"
             />
             <mat-datepicker-toggle
               matSuffix
@@ -63,8 +69,13 @@
           Cairo - Maadi
         </p>
         <p class="card-text">
-          Availability:
-          <span class="font-weight-bold">{{ resDateAppart2 }}</span>
+          Availability Date:
+          <ng-container *ngIf="checkAvailabilityAppart2(); else show_date2">
+            <span class="font-weight-bold">Available Now</span>
+          </ng-container>
+          <ng-template #show_date2>
+            <span class="font-weight-bold">{{ resDateAppart2 }}</span>
+          </ng-template>
         </p>
 
         <p class="card-text">
@@ -78,6 +89,7 @@
               [min]="minDate2"
               placeholder="Choose a date"
               formControlName="dateAppart2"
+              (dateChange)="pressRent2()"
             />
             <mat-datepicker-toggle
               matSuffix
