@@ -1,0 +1,119 @@
+<div class="container">
+  <div class="row">
+    <h3 class="display-5 m-2 p-1">
+      Hello {{ username }}, Here's the available Appartments
+    </h3>
+  </div>
+  <div class="row border m-1 p-5">
+    <div class="card ml-5" style="width: 18rem;">
+      <img
+        src="https://images.unsplash.com/photo-1546276933-ba48bfdf5d82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80"
+        class="card-img-top"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Apartment 1</h5>
+        <p class="card-text">
+          Cairo - Nasr City
+        </p>
+        <p class="card-text">
+          Availability Date:
+          <span class="font-weight-bold">{{ resDateAppart1 }}</span>
+        </p>
+        <p class="card-text">
+          You can Choose your reservation date:
+        </p>
+        <form [formGroup]="reservationFormAppart1" class="form-group">
+          <mat-form-field>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              [min]="minDate1"
+              placeholder="Choose a date"
+              formControlName="dateAppart1"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <a
+            (click)="showFirstNo()"
+            style="color: white"
+            class="btn btn-primary"
+            >Rent Now!</a
+          >
+        </form>
+
+        <p *ngIf="firstAppartNumber" class="text-success font-weight-bold mt-2">
+          Appartment Owner Number: 0109-000-1111
+        </p>
+      </div>
+    </div>
+
+    <div class="card ml-5 medium-view" style="width: 18rem;">
+      <img
+        src="https://images.unsplash.com/photo-1556486002-7a8afd70d8c5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        class="card-img-top"
+        style="height: 215px !important"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Apartment 2</h5>
+        <p class="card-text">
+          Cairo - Maadi
+        </p>
+        <p class="card-text">
+          Availability:
+          <span class="font-weight-bold">{{ resDateAppart2 }}</span>
+        </p>
+
+        <p class="card-text">
+          You can Choose your reservation date:
+        </p>
+        <form [formGroup]="reservationFormAppart2" class="form-group">
+          <mat-form-field>
+            <input
+              matInput
+              [matDatepicker]="picker2"
+              [min]="minDate2"
+              placeholder="Choose a date"
+              formControlName="dateAppart2"
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="picker2"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+          <a
+            (click)="showSecondNo()"
+            class="btn btn-primary"
+            style="color: white"
+            >Rent Now!</a
+          >
+        </form>
+
+        <p
+          *ngIf="secondtAppartNumber"
+          class="text-success font-weight-bold m-2"
+        >
+          Appartment Owner Number: 0102-222-9999
+        </p>
+      </div>
+    </div>
+  </div>
+  <form class="text-center mt-3">
+    <div class="form-group">
+      <p class="text-info">
+        Come Again! to enjoy our wonderful offers everyday!
+      </p>
+    </div>
+    <button
+      (click)="logout()"
+      type="button"
+      class="btn btn-outline-danger btn-bloc w-50 mb-4"
+    >
+      Logout
+    </button>
+  </form>
+</div>

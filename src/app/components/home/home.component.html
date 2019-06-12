@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="jumbotron"
+      style="background-color:white !important; margin: auto; margin-top: 100px; border: 2px solid rgba(20, 15, 7, 0.212);"
+    >
+      <h1 class="display-4">Appartments App</h1>
+      <p class="lead" style="text-align: center !important">
+        This is a simple appartment reservations app!
+      </p>
+      <hr class="my-5" />
+
+      <div class="card">
+        <div
+          class="card-header bg-info"
+          style="text-align: center !important; color: white"
+        >
+          Join Us Now!
+        </div>
+        <div class="card-body" style="text-align: center">
+          <h5 class="card-title">Register or Login!</h5>
+          <p class="card-text">
+            Register now it's free!
+            <span class="font-weight-bold"> Already a member? Login!</span>
+          </p>
+          <a
+            [routerLink]="['/register']"
+            class="card-link btn bg-primary"
+            style="color: white"
+            >Register</a
+          >
+          <a
+            [routerLink]="['/login']"
+            class="card-link btn bg-success"
+            style="color: white"
+            >Login</a
+          >
+        </div>
+      </div>
+
+      <small
+        class="form-text text-danger"
+        style="margin-left: 30px; margin-top: 50px"
+        >Your registration must have been 24 hours before you can log in.</small
+      >
+    </div>
+  </div>
+</div>
